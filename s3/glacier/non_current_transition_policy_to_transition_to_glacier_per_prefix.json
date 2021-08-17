@@ -1,0 +1,17 @@
+{
+   "Rules": [
+
+      {
+         "Status": "Enabled",
+         "Prefix": "",
+         "ID": "Delete old versions of every object in bucket after 0 days",
+         
+          "NoncurrentVersionExpiration": {
+          "NoncurrentDays": 1
+      },
+         "AbortIncompleteMultipartUpload": {
+            "DaysAfterInitiation": 3
+         }
+      }
+   ]
+}
