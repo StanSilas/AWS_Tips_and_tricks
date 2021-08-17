@@ -1,0 +1,31 @@
+import boto3
+
+PROFILE = "saml"
+BUCKET = "my_bucket"
+
+session = boto3.Session(profile_name = PROFILE)
+s3 = session.resource('s3')
+bucket = s3.Bucket(BUCKET)
+
+
+# files_to_delete = bucket.object_versions.filter(Prefix="a/s/")
+# # for file in files_to_delete:
+# # 	print(file)
+# print("Deleting Verisons First \n\n")
+# bucket.object_versions.filter(Prefix="a/s/").delete()
+# print("Deleting versions is complete\n\n")
+
+objects_to_delete = s3.meta.client.list_objects(Bucket="my_bucket", Prefix="as/s/")
+
+delete_keys = {'Objects' : []}
+delete_keys['Objects'] = [{'Key' : k} for k in [obj['Key'] for obj in objects_to_delete.get('Contents', [])]]
+
+s3.meta.client.delete_objects(Bucket="breeding-scratch-space-635590664227", Delete=delete_keys)
+
+# print("Moving on to deletion of object \n\n")
+
+# bucket.objects.filter(Prefix="applications/longSharedHaplotypes/lshTables/").delete()
+# print("Deletion of object is complete")
+# print("Thank you")
+
+
