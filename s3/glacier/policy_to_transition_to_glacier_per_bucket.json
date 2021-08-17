@@ -1,0 +1,18 @@
+{
+   "Rules": [
+
+      {
+         "Status": "Enabled",
+         "Prefix": "",
+         "NoncurrentVersionTransitions": [{
+            "NoncurrentDays": 0,
+            "StorageClass": "GLACIER"
+         }],
+         "ID": "Move old versions to Glacier after 0 days for specific Prefix",
+         
+         "AbortIncompleteMultipartUpload": {
+            "DaysAfterInitiation": 3
+         }
+      }
+   ]
+}
