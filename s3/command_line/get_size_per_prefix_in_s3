@@ -1,0 +1,5 @@
+foreach($line in Get-Content .\ss_level_1.txt) {
+>> $line
+>> aws --profile saml s3 ls $line  --summarize --human-readable --recursive | Select-String 'Total'
+>>
+>> }
