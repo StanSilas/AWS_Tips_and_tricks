@@ -1,0 +1,3 @@
+March 1 2024
+As organizations dive deeper into the world of S3 from a GRC standpoint, attribution of the who what where when and why becomes ultra important. While AWS does not provide something like this intuitively, using a combination of Athena S3  
+server access logging can help us understand these key elements. 
