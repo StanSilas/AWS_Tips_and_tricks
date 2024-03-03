@@ -3,7 +3,7 @@ from a storage perspective.
 
 
 To first get a list of all buckets start with the fullowing S3 script
-
+```
 #!/bin/zsh
 # list all s3 buckets
 
