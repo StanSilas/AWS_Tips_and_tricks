@@ -1,5 +1,5 @@
-Dec 27 2023:
-This is not an AWS 101 tutorial.  The tutorial assumes at least three years of hands on experience with S3 and athena. 
+Dec 27 2023:  
+The tutorial assumes at least three years of hands on experience with S3 and athena. 
 As organizations dive deeper into the world of S3 from a GRC standpoint, attribution of the who what where when and why becomes ultra important. While AWS does not provide something like this intuitively, using a combination of Athena S3  
 server access logging can help us understand these key elements. 
 
@@ -172,3 +172,4 @@ group by operation, requester
 limit 100;
 ```
 
+For more expert tutorials visit vivekmangipudi.wordpress.com   
