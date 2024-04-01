@@ -3,12 +3,25 @@ The tutorial assumes at least three years of hands on experience with S3 and ath
 As organizations dive deeper into the world of S3 from a GRC standpoint, attribution of the who what where when and why becomes ultra important. While AWS does not provide something like this intuitively, using a combination of Athena S3  
 server access logging can help us understand these key elements. 
 
+Step 0 Cost and Usage report  for attributing and breaking down S3 costs by api operations to specific buckets
 
 Step 1  enable S3 server access logging. See existing documentation on how to do this.     
 Step 2 enable cloudtrail logging. See existing documentation on how to do this.   
 Step 3 create new tables on top of these two buckets so the created buckets carry logs in a tabular format.   
 Step 4 Setup partitions to go around AWS's query limits and to query specific columns fast. Yes it's crazy but S3 gets limited by Athena very often.    
 Step 5 Query these tables to understand what's happening with your buckets. 
+
+Cost and Usage Reports:  
+Go to your billing account  
+Go to https://us-east-1.console.aws.amazon.com/costmanagement/home?region=us-east-1#/home  
+Go to Cost Explorer  https://us-east-1.console.aws.amazon.com/costmanagement/home#/cost-explorer?chartStyle=STACK&costAggregate=unBlendedCost&endDate=2023-27-31&excludeForecasting=false&filter=%5B%5D&futureRelativeRange=CUSTOM&granularity=Monthly&groupBy=%5B%22Service%22%5D&historicalRelativeRange=LAST_6_MONTHS&isDefault=true&reportName=New%20cost%20and%20usage%20report&showOnlyUncategorized=false&showOnlyUntagged=false&startDate=2023-10-01&usageAggregate=undefined&useNormalizedUnits=false  
+Apply filters to look at S3 and group by API operation  
+Go to https://us-east-1.console.aws.amazon.com/billing/home?region=us-east-1#/reports  and download the S3 Cost and usage report with a monthly breakdown.  
+Download the CSV.  
+Sort the CSV file by API operations in the Excel CSV to identify the top API operation and the bucket where it belongs to.  
+These are the buckets you want to dig deeper into to understand what's driving the costs.  
+
+
 
 Create Athena Tables:  
 ```
@@ -173,3 +186,4 @@ limit 100;
 ```
 
 For more expert tutorials visit vivekmangipudi.wordpress.com   
+
